@@ -96,3 +96,89 @@
   padding: 12px;
   border-radius: var(--border-radius-sm);
 }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.tabBtn {
+  padding: 10px 24px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.5);
+  transition: all var(--transition-fast);
+}
+
+.tabBtn.active {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* App List */
+.appList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.appItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--card-border);
+}
+
+.appInfo {
+  flex-grow: 1;
+}
+
+.appInfo h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.appInfo p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.appActions {
+  display: flex;
+  gap: 8px;
+}
+
+.editBtn, .deleteBtn {
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.editBtn {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.editBtn:hover {
+  background: #e5e7eb;
+}
+
+.deleteBtn {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.deleteBtn:hover {
+  background: #fecaca;
+}
