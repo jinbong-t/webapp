@@ -27,10 +27,18 @@
   color: var(--primary-color);
 }
 
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .logo .text {
-  background: var(--primary-gradient);
+  background: linear-gradient(270deg, #ff007f, #7928ca, #3b82f6, #00dfd8);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradientAnimation 4s ease infinite;
 }
 
 .nav {
