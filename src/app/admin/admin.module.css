@@ -150,6 +150,7 @@
 .appInfo p {
   font-size: 0.85rem;
   color: var(--text-secondary);
+  word-break: break-all;
 }
 
 .appActions {
@@ -163,6 +164,8 @@
   font-size: 0.85rem;
   font-weight: 600;
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .editBtn {
