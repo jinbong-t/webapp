@@ -5,9 +5,7 @@ export default function AppCard({ app }: { app: AppData }) {
   return (
     <div className={`glass glass-hover ${styles.card}`}>
       <div className={styles.imageWrapper}>
-        {app.thumbnailUrl ? (
-          <img src={app.thumbnailUrl} alt={`${app.title} 썸네일`} className={styles.image} />
-        ) : app.url ? (
+        {app.url ? (
           <div className={styles.iframeContainer}>
             <iframe src={app.url} className={styles.iframe} tabIndex={-1} aria-hidden="true" scrolling="no" title={`${app.title} 미리보기`} />
           </div>
