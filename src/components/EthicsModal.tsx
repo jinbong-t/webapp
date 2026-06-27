@@ -102,7 +102,7 @@ export default function EthicsModal({ onAgree }: { onAgree: () => void }) {
               checked={isChecked}
               onChange={(e) => setIsChecked(e.target.checked)}
             />
-            이 사진에 있는 윤리 핵심가이드를 빠짐없이 읽고 이를 지키겠습니다.
+            이 윤리 핵심 가이드를 빠짐없이 읽고 이를 지키겠습니다.
           </label>
           <button 
             className={styles.submitBtn} 
