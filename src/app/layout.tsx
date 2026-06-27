@@ -21,7 +21,11 @@ export default function RootLayout({
         </main>
         <footer style={{ textAlign: 'center', padding: '24px', borderTop: '1px solid rgba(255,255,255,0.3)', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
           <p>© 2026 우신중학교. All rights reserved. By Lee JinYoung</p>
-          <p style={{ marginTop: '8px' }}><a href="/privacy" style={{ textDecoration: 'underline' }}>개인정보처리방침</a></p>
+          <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'center', gap: '16px' }}>
+            <a href="/terms" style={{ textDecoration: 'underline' }}>이용약관</a>
+            <a href="/privacy" style={{ textDecoration: 'underline' }}>개인정보처리방침</a>
+            <a href="/checklist" style={{ textDecoration: 'underline' }}>필수기준 체크리스트</a>
+          </div>
         </footer>
       </body>
     </html>
