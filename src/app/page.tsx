@@ -47,7 +47,7 @@ export default function Home() {
       {showModal && <EthicsModal onAgree={handleAgree} />}
       <div className={styles.container}>
         <div className={styles.hero}>
-        <h1 className={styles.title}>진영쌤이 만든 웹앱모음</h1>
+        <h1 className={styles.title}>진영쌤이 만든 웹앱 모음</h1>
         <p className={styles.subtitle}>학교에서 필요한 여러 웹앱을 빠르게 찾고 바로 실행하세요.</p>
         <div className={styles.searchBox}>
           <input 

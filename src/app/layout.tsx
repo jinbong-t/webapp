@@ -3,7 +3,7 @@ import './globals.css';
 import Header from '../components/Header';
 
 export const metadata: Metadata = {
-  title: '진영쌤이 만든 웹앱모음',
+  title: '진영쌤이 만든 웹앱 모음',
   description: '학교에서 필요한 여러 웹앱을 한 곳에 모아 빠르게 실행하세요.',
 };
 
