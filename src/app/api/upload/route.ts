@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export async function POST(request: Request) {
   try {
@@ -12,17 +12,17 @@ export async function POST(request: Request) {
     }
 
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const buffer = new Uint8Array(bytes);
 
     const fileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-    const filePath = path.join(uploadDir, fileName);
+    const storageRef = ref(storage, `uploads/${fileName}`);
+    
+    await uploadBytes(storageRef, buffer, { contentType: file.type });
+    const downloadURL = await getDownloadURL(storageRef);
 
-    await fs.writeFile(filePath, buffer);
-
-    return NextResponse.json({ url: `/uploads/${fileName}` }, { status: 201 });
+    return NextResponse.json({ url: downloadURL }, { status: 201 });
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
+    console.error('Firebase Storage Error:', error);
+    return NextResponse.json({ error: 'Upload to Firebase failed' }, { status: 500 });
   }
 }
