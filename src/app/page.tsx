@@ -5,7 +5,7 @@ import AppCard from '../components/AppCard';
 import CategoryFilter from '../components/CategoryFilter';
 import styles from './page.module.css';
 
-const CATEGORIES = ['식생활', '의생활', '가족', '소비', '주거', '청소년', '학급운영', '업무관련', '기타'];
+const CATEGORIES = ['수업', '학급운영', '업무', '기타'];
 
 export default function Home() {
   const [apps, setApps] = useState<AppData[]>([]);
