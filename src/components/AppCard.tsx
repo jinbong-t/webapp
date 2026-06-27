@@ -7,6 +7,10 @@ export default function AppCard({ app }: { app: AppData }) {
       <div className={styles.imageWrapper}>
         {app.thumbnailUrl ? (
           <img src={app.thumbnailUrl} alt={app.title} className={styles.image} />
+        ) : app.url ? (
+          <div className={styles.iframeContainer}>
+            <iframe src={app.url} className={styles.iframe} tabIndex={-1} aria-hidden="true" scrolling="no" title={`${app.title} 미리보기`} />
+          </div>
         ) : (
           <div className={styles.placeholder}>
             <span>{app.title.charAt(0)}</span>
