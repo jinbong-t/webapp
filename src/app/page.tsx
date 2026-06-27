@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { AppData } from '../types';
 import AppCard from '../components/AppCard';
 import CategoryFilter from '../components/CategoryFilter';
+import EthicsModal from '../components/EthicsModal';
 import styles from './page.module.css';
 
 const CATEGORIES = ['수업', '학급운영', '업무', '기타'];
@@ -12,6 +13,19 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(true);
+
+  useEffect(() => {
+    const hasAgreed = sessionStorage.getItem('ethics_agreed');
+    if (hasAgreed) {
+      setShowModal(false);
+    }
+  }, []);
+
+  const handleAgree = () => {
+    sessionStorage.setItem('ethics_agreed', 'true');
+    setShowModal(false);
+  };
 
   useEffect(() => {
     fetch('/api/apps')
@@ -29,8 +43,10 @@ export default function Home() {
   });
 
   return (
-    <div className={styles.container}>
-      <div className={styles.hero}>
+    <>
+      {showModal && <EthicsModal onAgree={handleAgree} />}
+      <div className={styles.container}>
+        <div className={styles.hero}>
         <h1 className={styles.title}>진영쌤이 만든 웹앱모음</h1>
         <p className={styles.subtitle}>학교에서 필요한 여러 웹앱을 빠르게 찾고 바로 실행하세요.</p>
         <div className={styles.searchBox}>
@@ -65,5 +81,6 @@ export default function Home() {
         </div>
       )}
     </div>
+    </>
   );
 }
