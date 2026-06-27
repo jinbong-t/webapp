@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import styles from './admin.module.css';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const CATEGORIES = ['식생활', '의생활', '가족', '소비', '주거', '청소년', '학급운영', '업무관련', '기타'];
 
@@ -46,17 +48,14 @@ export default function AdminPage() {
     try {
       let thumbnailUrl = '';
       if (thumbnail) {
-        const formData = new FormData();
-        formData.append('file', thumbnail);
-        const uploadRes = await fetch('/api/upload', {
-          method: 'POST',
-          body: formData
-        });
-        if (uploadRes.ok) {
-          const { url } = await uploadRes.json();
-          thumbnailUrl = url;
-        } else {
-          throw new Error('썸네일 업로드 실패');
+        try {
+          const fileName = `${Date.now()}-${thumbnail.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+          const storageRef = ref(storage, `uploads/${fileName}`);
+          await uploadBytes(storageRef, thumbnail);
+          thumbnailUrl = await getDownloadURL(storageRef);
+        } catch (uploadError) {
+          console.error('Upload Error:', uploadError);
+          throw new Error('썸네일 업로드 실패 (Firebase 스토리지 설정을 확인해주세요)');
         }
       }
 
