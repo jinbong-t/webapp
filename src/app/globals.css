@@ -34,7 +34,7 @@
 html, body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--bg-color); /* Fallback */
-  background-image: url('/space-bg.jpg');
+  background-image: url('/space-bg.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
