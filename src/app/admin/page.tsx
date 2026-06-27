@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
 import styles from './admin.module.css';
-import { storage } from '@/lib/firebase';
-import { getDownloadURL } from 'firebase/storage';
 
 const CATEGORIES = ['수업', '학급운영', '업무', '기타'];
 
@@ -52,6 +50,7 @@ export default function AdminPage() {
         body: JSON.stringify(appData)
       });
 
+      if (res.ok) {
         setSubmitMessage('앱이 성공적으로 등록되었습니다!');
         setFormData({ title: '', category: CATEGORIES[0], url: '', description: '' });
       } else {
