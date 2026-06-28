@@ -5,6 +5,7 @@ import AppCard from '../components/AppCard';
 import CategoryFilter from '../components/CategoryFilter';
 import EthicsModal from '../components/EthicsModal';
 import styles from './page.module.css';
+import { useAuth } from '../context/AuthContext';
 
 const CATEGORIES = ['수업', '학급운영', '업무', '기타'];
 
@@ -42,6 +43,8 @@ export default function Home() {
     return matchCategory && matchSearch && app.isActive;
   });
 
+  const { user, loading: authLoading, signInWithGoogle } = useAuth();
+
   return (
     <>
       {showModal && <EthicsModal onAgree={handleAgree} />}
@@ -49,6 +52,16 @@ export default function Home() {
         <div className={styles.hero}>
         <h1 className={styles.title}>진영쌤이 만든 웹앱 모음</h1>
         <p className={styles.subtitle}>학교에서 필요한 여러 웹앱을 빠르게 찾고 바로 실행하세요.</p>
+        
+        {!authLoading && !user && (
+          <div className={styles.loginPrompt}>
+            <p>더 많은 기능과 가산점 혜택을 위해 로그인하세요! 😎</p>
+            <button onClick={signInWithGoogle} className={styles.heroLoginBtn}>
+              구글 계정으로 1초만에 시작하기
+            </button>
+          </div>
+        )}
+
         <div className={styles.searchBox}>
           <input 
             type="text" 
