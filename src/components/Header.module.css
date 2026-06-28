@@ -70,3 +70,51 @@
   background: var(--primary-color);
   color: white;
 }
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profileImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userName {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.loginBtn, .logoutBtn {
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 0.95rem;
+}
+
+.loginBtn {
+  background: #4285F4;
+  color: white;
+}
+
+.loginBtn:hover {
+  background: #3367D6;
+}
+
+.logoutBtn {
+  background: #f1f5f9;
+  color: var(--text-secondary);
+}
+
+.logoutBtn:hover {
+  background: #e2e8f0;
+  color: var(--text-primary);
+}
