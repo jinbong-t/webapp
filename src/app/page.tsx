@@ -52,46 +52,51 @@ export default function Home() {
         <div className={styles.hero}>
         <h1 className={styles.title}>진영쌤이 만든 웹앱 모음</h1>
         <p className={styles.subtitle}>학교에서 필요한 여러 웹앱을 빠르게 찾고 바로 실행하세요.</p>
-        
-        {!authLoading && !user && (
+        {authLoading ? (
+          <div className={styles.loading}>로그인 상태를 확인하는 중...</div>
+        ) : !user ? (
           <div className={styles.loginPrompt}>
-            <p>더 많은 기능과 가산점 혜택을 위해 로그인하세요! 😎</p>
+            <p>웹앱 모음을 이용하시려면 먼저 로그인이 필요합니다! 🔐</p>
             <button onClick={signInWithGoogle} className={styles.heroLoginBtn}>
               구글 계정으로 1초만에 시작하기
             </button>
           </div>
+        ) : (
+          <div className={styles.searchBox}>
+            <input 
+              type="text" 
+              placeholder="앱 이름 또는 키워드를 검색하세요" 
+              className={styles.searchInput}
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+            />
+          </div>
         )}
-
-        <div className={styles.searchBox}>
-          <input 
-            type="text" 
-            placeholder="앱 이름 또는 키워드를 검색하세요" 
-            className={styles.searchInput}
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
-        </div>
       </div>
 
-      <CategoryFilter 
-        categories={CATEGORIES} 
-        selected={selectedCategory} 
-        onSelect={setSelectedCategory} 
-      />
+      {!authLoading && user && (
+        <>
+          <CategoryFilter 
+            categories={CATEGORIES} 
+            selected={selectedCategory} 
+            onSelect={setSelectedCategory} 
+          />
 
-      {loading ? (
-        <div className={styles.loading}>앱 목록을 불러오는 중...</div>
-      ) : filteredApps.length > 0 ? (
-        <div className={styles.grid}>
-          {filteredApps.map(app => (
-            <AppCard key={app.id} app={app} />
-          ))}
-        </div>
-      ) : (
-        <div className={styles.empty}>
-          <h2>검색 결과가 없습니다.</h2>
-          <p>다른 키워드로 검색하거나 카테고리를 변경해보세요.</p>
-        </div>
+          {loading ? (
+            <div className={styles.loading}>앱 목록을 불러오는 중...</div>
+          ) : filteredApps.length > 0 ? (
+            <div className={styles.grid}>
+              {filteredApps.map(app => (
+                <AppCard key={app.id} app={app} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.empty}>
+              <h2>검색 결과가 없습니다.</h2>
+              <p>다른 키워드로 검색하거나 카테고리를 변경해보세요.</p>
+            </div>
+          )}
+        </>
       )}
     </div>
     </>
