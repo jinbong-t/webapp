@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏫 진영쌤의 자체 제작 웹앱 모음 (Web App Portal)
 
-## Getting Started
+![Web App Portal](public/favicon.ico)
 
-First, run the development server:
+> 우신중학교 학생들과 선생님들을 위해 자체 제작한 다양한 교육용/업무용 웹앱들을 한 곳에서 쉽고 빠르게 실행할 수 있는 **통합 포털 서비스**입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ 주요 기능 (Core Features)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **🔍 빠른 검색 및 카테고리 필터링:** 수업, 학급운영, 업무 등 목적에 맞는 앱을 쉽게 찾을 수 있습니다.
+- **🚀 즉시 실행:** 복잡한 설치 없이 클릭 한 번으로 웹앱을 바로 실행할 수 있습니다.
+- **🛡️ 윤리 가이드 제공:** 처음 사용 시 올바른 디지털 기기 사용 및 윤리 가이드를 제공하여 안전한 정보화 교육을 실천합니다.
+- **⚙️ 관리자 대시보드:** 관리자 모드를 통해 새로운 웹앱을 추가하고 손쉽게 관리할 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<br>
 
-## Learn More
+## 📖 사용 방법 (How to Use)
 
-To learn more about Next.js, take a look at the following resources:
+### 1. 로그인 안내
+- **일반 사용자 (학생/교사):** 별도의 번거로운 회원가입이나 로그인 없이 메인 화면에서 모든 앱을 즉시 이용할 수 있습니다.
+- **관리자:** 우측 상단의 `[관리자]` 버튼을 클릭한 후, 관리자 전용 인증 코드(`admin1234`)를 입력하면 앱 추가 및 관리 페이지로 접근할 수 있습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. 웹앱 이용하기
+1. 메인 화면에서 원하는 카테고리를 선택하거나, 검색창에 필요한 앱의 이름을 입력합니다.
+2. 원하는 앱의 카드에서 `[앱 실행하기]` 버튼을 누르면 즉시 해당 서비스로 이동합니다.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<br>
 
-## Deploy on Vercel
+## ⚠️ 사용 시 주의사항
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **올바른 목적:** 제공된 웹앱들은 학습과 학교생활을 돕기 위한 보조 도구입니다. 정해진 규칙과 범위 안에서 바르게 사용해 주세요.
+- **개인정보 보호:** 외부 서비스 이용 시 주민등록번호, 연락처 등 민감한 개인정보를 함부로 입력하지 않도록 주의해 주세요.
+- **저작권 존중:** 다른 사람이 만든 자료를 활용할 때는 반드시 출처를 남겨주세요.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<br>
+
+## 🛠 기술 스택 (Tech Stack)
+- **Frontend:** Next.js (App Router), React, CSS Modules
+- **Backend/DB:** Firebase (Firestore)
+- **Deployment:** Vercel
+
+<br>
+
+## 🧑‍🏫 소속 및 제작자
+- **소속:** 우신중학교 (Wooshin Middle School)
+- **제작자:** 이진영 (Lee JinYoung)
+- **GitHub:** [https://github.com/jinbong-t/webapp](https://github.com/jinbong-t/webapp)
