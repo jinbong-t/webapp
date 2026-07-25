@@ -17,7 +17,8 @@ export default function AdminPage() {
     title: '',
     category: CATEGORIES[0],
     url: '',
-    description: ''
+    description: '',
+    prompts: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -68,6 +69,7 @@ export default function AdminPage() {
         category: formData.category,
         url: formData.url,
         description: formData.description,
+        prompts: formData.prompts,
         thumbnailUrl: '' 
       };
       
@@ -88,7 +90,7 @@ export default function AdminPage() {
 
       if (res.ok) {
         setSubmitMessage(formData.id ? '앱이 성공적으로 수정되었습니다!' : '앱이 성공적으로 등록되었습니다!');
-        setFormData({ id: '', title: '', category: CATEGORIES[0], url: '', description: '' });
+        setFormData({ id: '', title: '', category: CATEGORIES[0], url: '', description: '', prompts: '' });
       } else {
         throw new Error('데이터 저장 실패');
       }
@@ -105,7 +107,8 @@ export default function AdminPage() {
       title: app.title,
       category: app.category || CATEGORIES[0],
       url: app.url,
-      description: app.description || ''
+      description: app.description || '',
+      prompts: app.prompts || ''
     });
     setActiveTab('register');
     setSubmitMessage('');
@@ -157,7 +160,7 @@ export default function AdminPage() {
             className={`${styles.tabBtn} ${activeTab === 'register' ? styles.active : ''}`}
             onClick={() => {
               setActiveTab('register');
-              setFormData({ id: '', title: '', category: CATEGORIES[0], url: '', description: '' });
+              setFormData({ id: '', title: '', category: CATEGORIES[0], url: '', description: '', prompts: '' });
               setSubmitMessage('');
             }}
           >
@@ -216,6 +219,17 @@ export default function AdminPage() {
                   rows={3}
                   value={formData.description}
                   onChange={e => setFormData({...formData, description: e.target.value})}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>AI 프롬프트</label>
+                <textarea 
+                  className={styles.input}
+                  rows={5}
+                  value={formData.prompts}
+                  onChange={e => setFormData({...formData, prompts: e.target.value})}
+                  placeholder="앱 개발에 사용된 AI 프롬프트를 입력하세요"
                 />
               </div>
 
