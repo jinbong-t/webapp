@@ -91,8 +91,17 @@
   overflow: hidden;
 }
 
-.launchBtn {
-  text-align: center;
-  display: block;
+.actions {
+  display: flex;
+  gap: 8px;
   width: 100%;
+}
+
+.copyBtn, .launchBtn {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }

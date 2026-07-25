@@ -6,6 +6,7 @@ export interface AppData {
   thumbnailUrl?: string;
   description?: string;
   isActive: boolean;
+  prompts?: string;
   createdAt: string;
   updatedAt: string;
 }

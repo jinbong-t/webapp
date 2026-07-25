@@ -2,6 +2,16 @@ import { AppData } from '../types';
 import styles from './AppCard.module.css';
 
 export default function AppCard({ app }: { app: AppData }) {
+  const handleCopyPrompt = async () => {
+    if (app.prompts) {
+      try {
+        await navigator.clipboard.writeText(app.prompts);
+        alert('프롬프트가 클립보드에 복사되었습니다!');
+      } catch (err) {
+        alert('복사에 실패했습니다.');
+      }
+    }
+  };
   return (
     <div className={`glass glass-hover ${styles.card}`}>
       <div className={styles.imageWrapper}>
@@ -19,9 +29,16 @@ export default function AppCard({ app }: { app: AppData }) {
       <div className={styles.content}>
         <h3 className={styles.title}>{app.title}</h3>
         {app.description && <p className={styles.desc}>{app.description}</p>}
-        <a href={app.url} target="_blank" rel="noopener noreferrer" className={`btn-primary ${styles.launchBtn}`}>
-          앱 실행하기
-        </a>
+        <div className={styles.actions}>
+          {app.prompts && (
+            <button onClick={handleCopyPrompt} className={`btn-secondary ${styles.copyBtn}`}>
+              프롬프트 복사
+            </button>
+          )}
+          <a href={app.url} target="_blank" rel="noopener noreferrer" className={`btn-primary ${styles.launchBtn}`}>
+            앱 실행하기
+          </a>
+        </div>
       </div>
     </div>
   );
