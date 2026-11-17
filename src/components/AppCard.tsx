@@ -7,19 +7,6 @@ export default function AppCard({ app }: { app: AppData }) {
   const blogUrl = app.blogUrl || parsed.blogUrl;
   const dashboardUrl = app.dashboardUrl || parsed.dashboardUrl;
 
-  const handleCopyPrompt = async () => {
-    if (app.prompts) {
-      try {
-        await navigator.clipboard.writeText(app.prompts);
-        alert('프롬프트가 클립보드에 복사되었습니다!');
-      } catch (err) {
-        alert('복사에 실패했습니다.');
-      }
-    } else {
-      alert('등록된 AI 프롬프트가 없습니다.');
-    }
-  };
-
   const handleMissingLink = (type: string) => {
     alert(`아직 등록된 ${type} 주소가 없습니다. 관리자 페이지에서 추가해주세요!`);
   };
@@ -104,14 +91,6 @@ export default function AppCard({ app }: { app: AppData }) {
               대시보드
             </button>
           )}
-
-          <button
-            type="button"
-            onClick={handleCopyPrompt}
-            className={`btn-secondary ${styles.actionBtn} ${styles.copyBtn} ${!app.prompts ? styles.inactiveBtn : ''}`}
-          >
-            프롬프트 복사
-          </button>
         </div>
       </div>
     </div>

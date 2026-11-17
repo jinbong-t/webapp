@@ -80,9 +80,9 @@
 .previewOverlayText {
   background: rgba(255, 255, 255, 0.95);
   color: #1e293b;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   transform: translateY(4px);
@@ -95,13 +95,13 @@
 
 .badge {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 10px;
+  right: 10px;
   background: rgba(255, 255, 255, 0.9);
   color: var(--primary-color);
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   backdrop-filter: blur(4px);
@@ -109,22 +109,22 @@
 }
 
 .content {
-  padding: 20px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .title {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
+  font-size: 1.02rem;
+  margin-bottom: 6px;
   color: var(--text-primary);
 }
 
 .desc {
-  font-size: 0.875rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -134,20 +134,21 @@
 
 .actions {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
   width: 100%;
 }
 
 .actionBtn {
   width: 100%;
-  padding: 8px 10px;
-  font-size: 0.85rem;
+  padding: 6px 4px;
+  font-size: 0.78rem;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
+  border-radius: 6px;
 }
 
 .blogBtn {
