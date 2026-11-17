@@ -48,6 +48,12 @@
   color: var(--text-secondary);
 }
 
+.helperText {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
 .input {
   padding: 12px 16px;
   border-radius: var(--border-radius-sm);
@@ -63,6 +69,54 @@
   border-color: var(--primary-color);
   background: white;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.urlPreviewBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px dashed var(--card-border);
+  font-size: 0.82rem;
+}
+
+.urlPreviewItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  word-break: break-all;
+}
+
+.urlTagApp,
+.urlTagBlog,
+.urlTagDash {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.urlTagApp {
+  background: rgba(59, 130, 246, 0.15);
+  color: #2563eb;
+}
+
+.urlTagBlog {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+}
+
+.urlTagDash {
+  background: rgba(139, 92, 246, 0.15);
+  color: #7c3aed;
+}
+
+.urlValue {
+  color: var(--text-primary);
 }
 
 .fileInput {
